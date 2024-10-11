@@ -1,0 +1,189 @@
+:root {
+    --color-background: rgb(0, 0, 0);
+    --color-second-backround: rgb(255, 255, 255, 0.5);
+    --second-color: rgb(0, 0, 0 ,0);
+    --border-color: #fff;
+    /* inp */
+    --text-color-inp-block: rgb(0, 0, 0);
+    --inp-font-size: 18px;
+    --inp-bg: rgba (0,0,0,0);
+    /* btn */
+    --btn-font-size: 18px;
+    --btn-font: rgba(0, 0, 0);
+    --text-color-default: rgb(255, 255, 255);
+    --done-btn-bg: rgb(255, 0, 0);
+    /* gradient */
+    --gradient: #A9DCFF, #14A0FF, #9564FA, #FEA501, #FC6F3B, #FD1A5D;
+    --second-gradient: #9564FA, #FC6F3B, #FD1A5D;
+  }
+  /* size */
+  :root {
+    --h1: 45px;
+    --h2: 36px;
+    --h3: 18px;
+    /* text */
+    --other-text-size: 18px;
+    /* border */
+    --radius: 20px;
+    --border: 2px;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    outline: none;
+    border: none;
+    list-style-type: none;
+    scrollbar-width: none;
+  }
+  
+  
+  body {
+    min-height: 100vh;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition:
+      color 0.5s,
+      background-color 0.5s;
+    line-height: 1.6;
+    font-family:
+      Inter,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+      sans-serif;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+.container {
+    display: grid;
+    align-items: center;
+    min-height: 90vh;
+    max-width: 1280px;
+    margin: 0 auto;
+    font-weight: normal;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 0.7fr;
+  justify-content: center;
+}
+.content {
+  min-height: 60vh;
+  position: relative;
+  background-color: black;
+  padding: 20px;
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.title_main_page {
+  color: #fff;
+  font-size: var(--h3);
+  text-align: center;
+}
+
+.link_for_lore {
+  position: relative;
+
+}
+
+.img {
+  width: 90%;
+}
+
+.btn {
+  position: relative;
+  z-index: 10;
+  /* border: var(--border) solid var(--border-color); */
+  border-radius: var(--radius);
+  color: var(--btn-font);
+  background-color: var(--second-color);
+  font-size: var(--btn-font-size);
+  padding: 10px 20px;
+  transition: 0.5s;
+}
+
+.btn:hover { 
+  color: var(--inp-bg);
+  background: var(--color-second-backround);
+  transition: 0.5s;
+}
+
+.btn_grd:before, .btn_grd:after {
+  content: '';
+  position: absolute;
+  border-radius: var(--radius);
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  background: linear-gradient(45deg, var(--gradient));
+  background-size: 350%;
+  z-index: 1;
+  animation: bg 7s alternate infinite;
+}
+
+.shd_grd_r:before, .shd_grd_r:after {
+  content: '';
+  position: absolute;
+  border-radius: var(--radius);
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: conic-gradient(from var(--angle), var(--gradient));
+  background-size: 100%;
+  z-index: -1;
+  animation: gradient 3s linear infinite;
+}
+
+.shd_grd_r:after {
+  filter: blur(20px);
+}
+
+@keyframes bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;	
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gradient {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
